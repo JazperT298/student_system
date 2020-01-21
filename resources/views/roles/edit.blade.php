@@ -11,10 +11,16 @@
        <div class="box box-primary">
            <div class="box-body">
                <div class="row">
-                   {!! Form::model($role, ['route' => ['roles.update', $role->id], 'method' => 'patch']) !!}
-
-                        @include('roles.fields')
-
+                   {!! Form::model($role, ['route' => ['roles.update', $role->role_id], 'method' => 'patch']) !!}
+                   <div class="form-group col-md-6">
+                        {!! Form::label('name', 'Name:') !!}
+                        {!! Form::text('name', null, ['class' => 'form-control']) !!}
+                    </div>
+                    </div>
+                    
+                    <div >
+                        {!! Form::submit('Update Role', ['class' => 'btn btn-success']) !!}
+                    </div>
                    {!! Form::close() !!}
                </div>
            </div>
