@@ -16,7 +16,7 @@
             <td>{{ $classrooms->classroom_code }}</td>
             <td>{{ $classrooms->classroom_description }}</td>
             <td>
-            @if($classrooms->classroom_status == 1)
+            @if($classrooms->classrooms_status == 1)
             <span class="text-success">Active</span>
             @else
             <span class="text-danger">In-Active</span>

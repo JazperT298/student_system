@@ -26,6 +26,7 @@ class Faculty extends Model
 
 
     protected $dates = ['deleted_at'];
+    protected $primaryKey = 'faculty_id';
 
 
 
