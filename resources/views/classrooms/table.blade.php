@@ -15,13 +15,19 @@
                 <td>{{ $classrooms->classroom_name }}</td>
             <td>{{ $classrooms->classroom_code }}</td>
             <td>{{ $classrooms->classroom_description }}</td>
-            <td>{{ $classrooms->classroom_status }}</td>
+            <td>
+            @if($classrooms->classroom_status == 1)
+            <span class="text-success">Active</span>
+            @else
+            <span class="text-danger">In-Active</span>
+            @endif
+            </td>
                 <td>
-                    {!! Form::open(['route' => ['classrooms.destroy', $classrooms->id], 'method' => 'delete']) !!}
+                    {!! Form::open(['route' => ['classrooms.destroy', $classrooms->classroom_id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
-                        <a href="{{ route('classrooms.show', [$classrooms->id]) }}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
-                        <a href="{{ route('classrooms.edit', [$classrooms->id]) }}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
-                        {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                    <a href="{{ route('classrooms.show', [$classrooms->classroom_id]) }}" class='btn btn-warning btn-xs'><i class="glyphicon glyphicon-eye-open">View </i></a>
+                        <a href="{{ route('classrooms.edit', [$classrooms->classroom_id]) }}" class='btn btn-info btn-xs'><i class="glyphicon glyphicon-edit">Edit </i></a>
+                       {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                     </div>
                     {!! Form::close() !!}
                 </td>

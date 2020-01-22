@@ -19,6 +19,11 @@
 <!-- Status Field -->
 <div class="form-group">
     {!! Form::label('status', 'Status:') !!}
-    <p>{{ $course->status }}</p>
+    @if ( $course->status == 1) 
+    <p>Active</p>
+    @else
+    <p>In-Active</p>
+    @endif
+    <!-- <p>{{ $course->status }}</p> -->
 </div>
 
