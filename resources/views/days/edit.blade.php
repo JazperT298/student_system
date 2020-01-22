@@ -11,9 +11,17 @@
        <div class="box box-primary">
            <div class="box-body">
                <div class="row">
-                   {!! Form::model($day, ['route' => ['days.update', $day->id], 'method' => 'patch']) !!}
+                   {!! Form::model($day, ['route' => ['days.update', $day->day_id], 'method' => 'patch']) !!}
+                   <div class="modal-body">
+                    <div class="input-group col-sm-10">
+                        <span class="input-group-addon">Name</span>
+                        {!! Form::text('name', null, ['class' => 'form-control']) !!}
+                        </div>
+                    </div>
 
-                        @include('days.fields')
+                    <div class="modal-footer">
+                            {!! Form::submit('Update Day', ['class' => 'btn btn-info']) !!}
+                </div>
 
                    {!! Form::close() !!}
                </div>

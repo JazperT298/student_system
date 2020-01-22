@@ -23,7 +23,7 @@ class Day extends Model
 
 
     protected $dates = ['deleted_at'];
-
+    protected $primaryKey = 'day_id';
 
 
     public $fillable = [
