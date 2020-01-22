@@ -23,7 +23,7 @@ class Batche extends Model
 
 
     protected $dates = ['deleted_at'];
-
+    protected $primaryKey = 'batch_id';
 
 
     public $fillable = [

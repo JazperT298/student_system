@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Batche
+            Batch
         </h1>
    </section>
    <div class="content">
@@ -11,9 +11,17 @@
        <div class="box box-primary">
            <div class="box-body">
                <div class="row">
-                   {!! Form::model($batche, ['route' => ['batches.update', $batche->id], 'method' => 'patch']) !!}
+                   {!! Form::model($batche, ['route' => ['batches.update', $batche->batch_id], 'method' => 'patch']) !!}
+                   <div class="modal-body">
+                    <div class="input-group col-sm-10">
+                        <span class="input-group-addon">Batch Year</span>
+                        {!! Form::text('batch', null, ['class' => 'form-control']) !!}
+                        </div>
+                    </div>
 
-                        @include('batches.fields')
+                    <div class="modal-footer">
+                            {!! Form::submit('Update Batch', ['class' => 'btn btn-info']) !!}
+                </div>
 
                    {!! Form::close() !!}
                </div>
