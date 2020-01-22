@@ -18,6 +18,7 @@ class Classes extends Model
     use SoftDeletes;
 
     public $table = 'classes';
+    protected $primaryKey = 'class_id';
     
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';

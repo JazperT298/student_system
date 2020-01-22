@@ -59,10 +59,9 @@
                     </div>
                 </div>
 
-        <div class="modal-footer">
-            <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
-                {!! Form::submit('Create Batch', ['class' => 'btn btn-success']) !!}
-            </div>
+            <!-- <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+            </div> -->
         </div>
     </div>
 </div>

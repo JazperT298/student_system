@@ -21,6 +21,8 @@ class ClassesRepository extends BaseRepository
         'class_code'
     ];
 
+    protected $primaryKey = 'class_id';
+
     /**
      * Return searchable fields
      *
