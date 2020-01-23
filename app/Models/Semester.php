@@ -36,6 +36,9 @@ class Semester extends Model
         'semester_description'
     ];
 
+    protected $primaryKey = 'semester_id';
+
+
     /**
      * The attributes that should be casted to native types.
      *
