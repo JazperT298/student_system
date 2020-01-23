@@ -35,7 +35,7 @@ class Teacher extends Model
 
 
     protected $dates = ['deleted_at'];
-
+    protected $primaryKey = 'teacher_id';
 
 
     public $fillable = [
@@ -53,6 +53,8 @@ class Teacher extends Model
         'user_id',
         'image'
     ];
+
+    
 
     /**
      * The attributes that should be casted to native types.

@@ -67,5 +67,11 @@ class User extends Model
         'password' => 'required'
     ];
 
+    public function role()
+    {
+        return $this->belongsTo('App\Models\Role'); //relationships for the model
+    }
+
+
     
 }

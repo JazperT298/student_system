@@ -32,6 +32,8 @@ class TeacherRepository extends BaseRepository
         'image'
     ];
 
+    protected $primaryKey = 'teacher_id';
+
     /**
      * Return searchable fields
      *

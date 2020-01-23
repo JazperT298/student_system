@@ -1,3 +1,4 @@
+@if(Auth::user()->role < 2)
 <li class="treeview">
     <a href="#">
         <i class="fa fa-dashboard"></i> <span>General</span>
@@ -5,6 +6,7 @@
                 <i class="fa fa-angle-left pull-right"></i>
             </span>
     </a>
+
 <ul class="treeview-menu">
 
 
@@ -75,6 +77,7 @@
 
 </ul>
 </li>
+@endif
 
 <li class="{{ Request::is('admissions*') ? 'active' : '' }}">
     <a href="{{ route('admissions.index') }}"><i class="fa fa-user"></i><span>Admissions</span></a>
@@ -84,21 +87,22 @@
     <a href="{{ route('teachers.index') }}"><i class="fa fa-user-circle"></i><span>Teachers</span></a>
 </li>
 
-<li class="{{ Request::is('attendances*') ? 'active' : '' }}">
-    <a href="{{ route('attendances.index') }}"><i class="fa fa-calendar"></i><span>Attendances</span></a>
-</li>
-
-
-<li class="{{ Request::is('roles*') ? 'active' : '' }}">
-    <a href="{{ route('roles.index') }}"><i class="fa fa-edit"></i><span>Roles</span></a>
-</li>
-
 <li class="{{ Request::is('users*') ? 'active' : '' }}">
     <a href="{{ route('users.index') }}"><i class="fa fa-user"></i><span>Users</span></a>
 </li>
 
+@if(Auth::user()->role < 4)
+<li class="{{ Request::is('attendances*') ? 'active' : '' }}">
+    <a href="{{ route('attendances.index') }}"><i class="fa fa-calendar"></i><span>Attendances</span></a>
+</li>
+@endif
+
+<li class="{{ Request::is('roles*') ? 'active' : '' }}">
+    <a href="{{ route('roles.index') }}"><i class="fa fa-edit"></i><span>Roles</span></a>
+</li>
+@if(Auth::user()->role < 4)
 <li class="{{ Request::is('transactions*') ? 'active' : '' }}">
     <a href="{{ route('transactions.index') }}"><i class="fa fa-money"></i><span>Transactions</span></a>
 </li>
-
+@endif
 
