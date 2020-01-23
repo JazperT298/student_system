@@ -23,7 +23,7 @@ class Shift extends Model
 
 
     protected $dates = ['deleted_at'];
-
+    protected $primaryKey = 'shift_id';
 
 
     public $fillable = [

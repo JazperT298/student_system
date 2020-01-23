@@ -11,10 +11,17 @@
        <div class="box box-primary">
            <div class="box-body">
                <div class="row">
-                   {!! Form::model($shift, ['route' => ['shifts.update', $shift->id], 'method' => 'patch']) !!}
+                    {!! Form::model($shift, ['route' => ['shifts.update', $shift->shift_id], 'method' => 'patch']) !!}
+                    <div class="modal-body">
+                    <div class="input-group col-sm-10">
+                        <span class="input-group-addon">Shift</span>
+                        {!! Form::text('shift', null, ['class' => 'form-control']) !!}
+                        </div>
+                    </div>
 
-                        @include('shifts.fields')
-
+                    <div class="modal-footer">
+                            {!! Form::submit('Update Shifts', ['class' => 'btn btn-info']) !!}
+                    </div>
                    {!! Form::close() !!}
                </div>
            </div>
