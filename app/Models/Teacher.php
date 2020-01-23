@@ -35,7 +35,7 @@ class Teacher extends Model
 
 
     protected $dates = ['deleted_at'];
-
+    protected $primaryKey = 'teacher_id';
 
 
     public $fillable = [

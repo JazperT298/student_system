@@ -11,7 +11,7 @@
        <div class="box box-primary">
            <div class="box-body">
                <div class="row">
-                   {!! Form::model($classScheduling, ['route' => ['classSchedulings.update', $classScheduling->id], 'method' => 'patch']) !!}
+                   {!! Form::model($classScheduling, ['route' => ['classSchedulings.update', $classScheduling->schedule_id], 'method' => 'patch']) !!}
 
                         @include('class_schedulings.fields')
 

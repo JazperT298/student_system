@@ -10,6 +10,17 @@ use Illuminate\Http\Request;
 use Flash;
 use Response;
 
+use App\models\Batche;
+use App\models\Classes;
+use App\models\Classrooms;
+use App\models\Course;
+use App\models\Day;
+use App\models\Level;
+use App\models\Semester;
+use App\models\Shift;
+use App\models\Time;
+use App\models\Teacher;
+
 class ClassSchedulingController extends AppBaseController
 {
     /** @var  ClassSchedulingRepository */
@@ -29,6 +40,19 @@ class ClassSchedulingController extends AppBaseController
      */
     public function index(Request $request)
     {
+        $batch= Batche::all();
+        $class= Classes::all();
+        $classrooms= Classrooms::all();
+        $course= Course::all();
+        $day= Day::all();
+        $level= Level::all();
+        $semester= Semester::all();
+        $shift= Shift::all();
+        $time= Time::all();
+        $teacher= Teacher::all();
+
+  
+
         $classSchedulings = $this->classSchedulingRepository->all();
 
         return view('class_schedulings.index')

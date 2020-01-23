@@ -30,6 +30,7 @@ class ClassSchedulingRepository extends BaseRepository
         'end_time',
         'status'
     ];
+    protected $primaryKey = 'schedule_id';
 
     /**
      * Return searchable fields
