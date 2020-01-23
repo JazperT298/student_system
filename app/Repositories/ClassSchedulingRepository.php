@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class ClassSchedulingRepository
  * @package App\Repositories
- * @version January 21, 2020, 6:35 am UTC
+ * @version January 23, 2020, 7:56 am UTC
 */
 
 class ClassSchedulingRepository extends BaseRepository
@@ -18,6 +18,7 @@ class ClassSchedulingRepository extends BaseRepository
      */
     protected $fieldSearchable = [
         'course_id',
+        'class_id',
         'level_id',
         'shift_id',
         'classroom_id',

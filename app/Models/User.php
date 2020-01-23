@@ -66,11 +66,12 @@ class User extends Model
         'email' => 'required',
         'password' => 'required'
     ];
+ 
+    // public function role()
+    // {
+    //     return $this->belongsTo('App\Models\Role');
+    // }
 
-    public function role()
-    {
-        return $this->belongsTo('App\Models\Role'); //relationships for the model
-    }
 
 
     

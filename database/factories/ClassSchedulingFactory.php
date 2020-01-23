@@ -9,6 +9,7 @@ $factory->define(ClassScheduling::class, function (Faker $faker) {
 
     return [
         'course_id' => $faker->randomDigitNotNull,
+        'class_id' => $faker->randomDigitNotNull,
         'level_id' => $faker->randomDigitNotNull,
         'shift_id' => $faker->randomDigitNotNull,
         'classroom_id' => $faker->randomDigitNotNull,

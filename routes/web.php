@@ -57,3 +57,5 @@ Route::resource('roles', 'RoleController');
 Route::resource('users', 'UserController');
 
 Route::resource('semesters', 'SemesterController');
+
+Route::resource('classSchedulings', 'ClassSchedulingController');

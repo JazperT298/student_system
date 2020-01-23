@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class TeacherRepository
  * @package App\Repositories
- * @version January 21, 2020, 6:38 am UTC
+ * @version January 23, 2020, 7:52 am UTC
 */
 
 class TeacherRepository extends BaseRepository
@@ -31,8 +31,6 @@ class TeacherRepository extends BaseRepository
         'user_id',
         'image'
     ];
-
-    protected $primaryKey = 'teacher_id';
 
     /**
      * Return searchable fields

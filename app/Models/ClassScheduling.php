@@ -8,9 +8,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class ClassScheduling
  * @package App\Models
- * @version January 21, 2020, 6:35 am UTC
+ * @version January 23, 2020, 7:56 am UTC
  *
  * @property integer course_id
+ * @property integer class_id
  * @property integer level_id
  * @property integer shift_id
  * @property integer classroom_id
@@ -38,6 +39,7 @@ class ClassScheduling extends Model
 
     public $fillable = [
         'course_id',
+        'class_id',
         'level_id',
         'shift_id',
         'classroom_id',
@@ -58,6 +60,7 @@ class ClassScheduling extends Model
     protected $casts = [
         'schedule_id' => 'integer',
         'course_id' => 'integer',
+        'class_id' => 'integer',
         'level_id' => 'integer',
         'shift_id' => 'integer',
         'classroom_id' => 'integer',
@@ -75,6 +78,7 @@ class ClassScheduling extends Model
      */
     public static $rules = [
         'course_id' => 'required',
+        'class_id' => 'required',
         'level_id' => 'required',
         'shift_id' => 'required',
         'classroom_id' => 'required',

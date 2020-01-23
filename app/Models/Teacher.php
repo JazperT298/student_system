@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class Teacher
  * @package App\Models
- * @version January 21, 2020, 6:38 am UTC
+ * @version January 23, 2020, 7:52 am UTC
  *
  * @property string first_name
  * @property string last_name
@@ -35,7 +35,7 @@ class Teacher extends Model
 
 
     protected $dates = ['deleted_at'];
-    protected $primaryKey = 'teacher_id';
+
 
 
     public $fillable = [
@@ -53,8 +53,6 @@ class Teacher extends Model
         'user_id',
         'image'
     ];
-
-    
 
     /**
      * The attributes that should be casted to native types.
