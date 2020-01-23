@@ -19,7 +19,7 @@
 <!-- Classroom Status Field -->
 <div class="form-group">
     {!! Form::label('classroom_status', 'Classroom Status:') !!}
-    @if ( $classrooms->classroom_status == 1) 
+    @if($classrooms->classroom_status == 1) 
     <p>Active</p>
     @else
     <p>In-Active</p>
