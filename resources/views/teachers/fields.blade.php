@@ -1,3 +1,16 @@
+<!-- --------------Modal---------------- -->
+<div class="modal fade" id="teacher-add-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" style="width:90%">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <h5 class="modal-title" id="exampleModalLongTitle">Add New Schedule</h5> -->
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+            <!-- </div> -->
+                <div class="modal-body">
+
 <!-- First Name Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('first_name', 'First Name:') !!}
@@ -13,7 +26,12 @@
 <!-- Gender Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('gender', 'Gender:') !!}
-    {!! Form::text('gender', null, ['class' => 'form-control']) !!}
+    <select class="form-control" name="gender", id="gender">
+        <option value="">Select Gender</option>
+        <option value="Female">Female</option>
+        <option value="Male">Male</option>
+        <option value="Shemale">Shemale</option>
+    </select>
 </div>
 
 <!-- Email Field -->
@@ -30,8 +48,8 @@
 
 @section('scripts')
     <script type="text/javascript">
-        $('#dob').datetimepicker({
-            format: 'YYYY-MM-DD HH:mm:ss',
+        $('#dob').datepicker({
+            format: 'YYYY-MM-DD',
             useCurrent: false
         })
     </script>
@@ -61,22 +79,16 @@
     {!! Form::text('passport', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Status Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('status', 'Status:') !!}
-    {!! Form::text('status', null, ['class' => 'form-control']) !!}
-</div>
-
 <!-- Dateregistered Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('dateregistered', 'Dateregistered:') !!}
+    {!! Form::label('dateregistered', 'Date Registered:') !!}
     {!! Form::date('dateregistered', null, ['class' => 'form-control','id'=>'dateregistered']) !!}
 </div>
 
 @section('scripts')
     <script type="text/javascript">
-        $('#dateregistered').datetimepicker({
-            format: 'YYYY-MM-DD HH:mm:ss',
+        $('#dateregistered').datepicker({
+            format: 'YYYY-MM-DD',
             useCurrent: false
         })
     </script>
@@ -94,8 +106,20 @@
     {!! Form::text('image', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Submit Field -->
-<div class="form-group col-sm-12">
-    {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-    <a href="{{ route('teachers.index') }}" class="btn btn-default">Cancel</a>
+<!-- Status Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('status', 'Status:') !!}
+    <label class="checkbox-inline">
+        {!! Form::hidden('status', 0) !!}
+        {!! Form::checkbox('status', '1', null) !!}
+    </label>
+</div>
+
+</div>               
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        {!! Form::submit('Save Schedule', ['class' => 'btn btn-success']) !!}
+      </div>
+    </div>
+  </div>
 </div>
