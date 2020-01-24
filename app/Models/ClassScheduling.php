@@ -8,19 +8,19 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class ClassScheduling
  * @package App\Models
- * @version January 23, 2020, 7:56 am UTC
+ * @version January 24, 2020, 1:21 am UTC
  *
- * @property integer course_id
  * @property integer class_id
+ * @property integer course_id
  * @property integer level_id
  * @property integer shift_id
  * @property integer classroom_id
  * @property integer batch_id
  * @property integer day_id
  * @property integer time_id
- * @property integer teacher_id
- * @property time start_time
- * @property time end_time
+ * @property integer semester_id
+ * @property string start_date
+ * @property string end_date
  * @property boolean status
  */
 class ClassScheduling extends Model
@@ -34,21 +34,21 @@ class ClassScheduling extends Model
 
 
     protected $dates = ['deleted_at'];
-    protected $primaryKey = 'schedule_id';
+
 
 
     public $fillable = [
-        'course_id',
         'class_id',
+        'course_id',
         'level_id',
         'shift_id',
         'classroom_id',
         'batch_id',
         'day_id',
         'time_id',
-        'teacher_id',
-        'start_time',
-        'end_time',
+        'semester_id',
+        'start_date',
+        'end_date',
         'status'
     ];
 
@@ -59,15 +59,17 @@ class ClassScheduling extends Model
      */
     protected $casts = [
         'schedule_id' => 'integer',
-        'course_id' => 'integer',
         'class_id' => 'integer',
+        'course_id' => 'integer',
         'level_id' => 'integer',
         'shift_id' => 'integer',
         'classroom_id' => 'integer',
         'batch_id' => 'integer',
         'day_id' => 'integer',
         'time_id' => 'integer',
-        'teacher_id' => 'integer',
+        'semester_id' => 'integer',
+        'start_date' => 'date',
+        'end_date' => 'date',
         'status' => 'boolean'
     ];
 
@@ -77,17 +79,17 @@ class ClassScheduling extends Model
      * @var array
      */
     public static $rules = [
-        'course_id' => 'required',
         'class_id' => 'required',
+        'course_id' => 'required',
         'level_id' => 'required',
         'shift_id' => 'required',
         'classroom_id' => 'required',
         'batch_id' => 'required',
         'day_id' => 'required',
         'time_id' => 'required',
-        'teacher_id' => 'required',
-        'start_time' => 'required',
-        'end_time' => 'required',
+        'semester_id' => 'required',
+        'start_date' => 'required',
+        'end_date' => 'required',
         'status' => 'required'
     ];
 

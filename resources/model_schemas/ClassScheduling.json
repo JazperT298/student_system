@@ -12,7 +12,7 @@
         "inView": false
     },
     {
-        "name": "course_id",
+        "name": "class_id",
         "dbType": "integer,false",
         "htmlType": null,
         "validations": "required",
@@ -24,7 +24,7 @@
         "inView": true
     },
     {
-        "name": "class_id",
+        "name": "course_id",
         "dbType": "integer,false",
         "htmlType": null,
         "validations": "required",
@@ -108,7 +108,7 @@
         "inView": true
     },
     {
-        "name": "teacher_id",
+        "name": "semester_id",
         "dbType": "integer,false",
         "htmlType": null,
         "validations": "required",
@@ -120,9 +120,9 @@
         "inView": true
     },
     {
-        "name": "start_time",
-        "dbType": "time",
-        "htmlType": "text",
+        "name": "start_date",
+        "dbType": "date",
+        "htmlType": "date",
         "validations": "required",
         "searchable": true,
         "fillable": true,
@@ -132,9 +132,9 @@
         "inView": true
     },
     {
-        "name": "end_time",
-        "dbType": "time",
-        "htmlType": "text",
+        "name": "end_date",
+        "dbType": "date",
+        "htmlType": "date",
         "validations": "required",
         "searchable": true,
         "fillable": true,
