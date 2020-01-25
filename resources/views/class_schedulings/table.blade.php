@@ -2,15 +2,15 @@
     <table class="table" id="classSchedulings-table">
         <thead>
             <tr>
-                <th>Class Id</th>
-        <th>Course Id</th>
-        <th>Level Id</th>
-        <th>Shift Id</th>
-        <th>Classroom Id</th>
-        <th>Batch Id</th>
-        <th>Day Id</th>
-        <th>Time Id</th>
-        <th>Semester Id</th>
+                <th>Course</th>
+        <th>Class</th>
+        <th>Level</th>
+        <th>Shift</th>
+        <th>Classroom</th>
+        <th>Batch</th>
+        <th>Day</th>
+        <th>Time</th>
+        <th>Semester</th>
         <th>Start Date</th>
         <th>End Date</th>
         <th>Status</th>
@@ -18,31 +18,38 @@
             </tr>
         </thead>
         <tbody>
-        @foreach($classSchedulings as $classScheduling)
-            <tr>
-                <td>{{ $classScheduling->class_id }}</td>
-            <td>{{ $classScheduling->course_id }}</td>
-            <td>{{ $classScheduling->level_id }}</td>
-            <td>{{ $classScheduling->shift_id }}</td>
-            <td>{{ $classScheduling->classroom_id }}</td>
-            <td>{{ $classScheduling->batch_id }}</td>
-            <td>{{ $classScheduling->day_id }}</td>
-            <td>{{ $classScheduling->time_id }}</td>
-            <td>{{ $classScheduling->semester_id }}</td>
-            <td>{{ $classScheduling->start_date }}</td>
-            <td>{{ $classScheduling->end_date }}</td>
-            <td>{{ $classScheduling->status }}</td>
+        @foreach($classscheduling as $classScheduling)
+            <tr>       
+                <td>{{ $classScheduling->course_name }}</td>
+                <td>{{ $classScheduling->class_name }}</td>
+                <td>{{ $classScheduling->level }}</td>
+                <td>{{ $classScheduling->shift }}</td>
+                <td>{{ $classScheduling->classroom_name }}</td>
+                <td>{{ $classScheduling->batch }}</td>
+                <td>{{ $classScheduling->name }}</td>
+                <td>{{ $classScheduling->time }}</td>
+                <td>{{ $classScheduling->semester_name }}</td>
+                <td>{{ $classScheduling->start_date }}</td>
+                <td>{{ $classScheduling->end_date }}</td>
                 <td>
-                    {!! Form::open(['route' => ['classSchedulings.destroy', $classScheduling->id], 'method' => 'delete']) !!}
+                @if ( $classScheduling->status == 1) 
+                <span class="text-success">Active</span>
+                @else
+                <span class="text-danger">In-Active</span>
+                @endif
+                </td>
+                <td>
+                    {!! Form::open(['route' => ['classSchedulings.destroy', $classScheduling->schedule_id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
-                        <a href="{{ route('classSchedulings.show', [$classScheduling->id]) }}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
-                        <a href="{{ route('classSchedulings.edit', [$classScheduling->id]) }}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
+                        <a href="{{ route('classSchedulings.show', [$classScheduling->schedule_id]) }}" class='btn btn-warning btn-xs'><i class="glyphicon glyphicon-eye-open">View</i></a>
+                        <a href="{{ route('classSchedulings.edit', [$classScheduling->schedule_id]) }}" class='btn btn-info btn-xs'><i class="glyphicon glyphicon-edit">Edit</i></a>
                         {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                     </div>
                     {!! Form::close() !!}
-                </td>
+                </td>                       
             </tr>
-        @endforeach
+            @endforeach
+     
         </tbody>
     </table>
 </div>

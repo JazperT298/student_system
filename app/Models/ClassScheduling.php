@@ -34,6 +34,7 @@ class ClassScheduling extends Model
 
 
     protected $dates = ['deleted_at'];
+    protected $primaryKey = 'schedule_id';
 
 
 

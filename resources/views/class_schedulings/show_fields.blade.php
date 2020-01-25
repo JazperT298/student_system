@@ -1,7 +1,7 @@
 <!-- Class Id Field -->
 <div class="form-group">
-    {!! Form::label('class_id', 'Class Id:') !!}
-    <p>{{ $classScheduling->class_id }}</p>
+    {!! Form::label('class_name', 'Class Name:') !!}
+    <p>{{ $classScheduling->class_name }}</p>
 </div>
 
 <!-- Course Id Field -->
