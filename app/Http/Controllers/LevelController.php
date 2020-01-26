@@ -9,6 +9,8 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
+use App\models\Course;
+use DB;
 
 class LevelController extends AppBaseController
 {
@@ -29,10 +31,19 @@ class LevelController extends AppBaseController
      */
     public function index(Request $request)
     {
+        
+        $course = Course::all();
+
         $levels = $this->levelRepository->all();
 
-        return view('levels.index')
-            ->with('levels', $levels);
+        $level = DB::table('levels')->select(
+            'courses.*',
+            'levels.*')
+            ->join('courses', 'courses.course_id', '=', 'levels.course_id')
+            ->get();
+            
+        return view('levels.index' , compact( 'course', 'levels'))
+            ->with('levels', $level);
     }
 
     /**
@@ -100,7 +111,10 @@ class LevelController extends AppBaseController
             return redirect(route('levels.index'));
         }
 
-        return view('levels.edit')->with('level', $level);
+         return view('levels.edit')->with('level', $level);
+        // if($request->ajax()){
+        //     return response(Levels::find($request->id));
+        //}
     }
 
     /**

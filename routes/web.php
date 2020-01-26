@@ -63,3 +63,7 @@ Route::resource('classSchedulings', 'ClassSchedulingController');
 Route::resource('classSchedulings', 'ClassSchedulingController');
 
 Route::get('/dynamicLevel', ['as' => 'dynamicLevel', 'uses' => 'ClassSchedulingController@DynamicLevel']);
+
+// Route::get('/levels/edit', ['as' => 'edit', 'uses' => 'LevelController@edit']);
+
+// Route::get('/class_schedules/edit', ['as' => 'edit', 'uses' => 'ClassSchedulingController@edit']);
