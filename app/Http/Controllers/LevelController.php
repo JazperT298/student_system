@@ -9,6 +9,9 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
+use App\models\Course;
+use App\models\Level;
+use DB;
 
 class LevelController extends AppBaseController
 {
@@ -29,9 +32,21 @@ class LevelController extends AppBaseController
      */
     public function index(Request $request)
     {
+
+        $course = Course::all();
+       
+
         $levels = $this->levelRepository->all();
 
-        return view('levels.index')
+        $levelss = DB::table('levels')->select(
+            'courses.*',
+            'levels.*')
+            ->join('courses', 'courses.course_id', '=', 'levels.course_id')
+            ->get();
+
+       
+
+        return view('levels.index', compact('levelss','course'))
             ->with('levels', $levels);
     }
 
@@ -90,17 +105,11 @@ class LevelController extends AppBaseController
      *
      * @return Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        $level = $this->levelRepository->find($id);
-
-        if (empty($level)) {
-            Flash::error('Level not found');
-
-            return redirect(route('levels.index'));
+        if($request->ajax()){
+            return Response(Level::find($request->id));
         }
-
-        return view('levels.edit')->with('level', $level);
     }
 
     /**

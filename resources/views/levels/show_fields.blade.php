@@ -6,8 +6,8 @@
 
 <!-- Course Id Field -->
 <div class="form-group">
-    {!! Form::label('course_id', 'Course Id:') !!}
-    <p>{{ $level->course_id }}</p>
+    {!! Form::label('course_name', 'Course Title:') !!}
+    <p>{{ $level->course_name }}</p>
 </div>
 
 <!-- Level Description Field -->

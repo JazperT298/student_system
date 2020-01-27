@@ -25,7 +25,7 @@ class Level extends Model
 
 
     protected $dates = ['deleted_at'];
-
+    protected $primaryKey = 'level_id';
 
 
     public $fillable = [
