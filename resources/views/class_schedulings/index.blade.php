@@ -17,6 +17,7 @@
         <div class="box box-primary">
             <div class="box-body">
                     @include('class_schedulings.table')
+                    @include('class_schedulings.edit')
                     {!! Form::open(['route' => 'classSchedulings.store']) !!}
 
                     @include('class_schedulings.fields')

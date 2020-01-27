@@ -108,7 +108,7 @@ class LevelController extends AppBaseController
     public function edit(Request $request)
     {
         if($request->ajax()){
-            return Response(Level::find($request->$id));
+            return Response(Level::find($request->id));
         }
     }
 

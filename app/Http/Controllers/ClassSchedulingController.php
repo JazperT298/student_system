@@ -18,6 +18,7 @@ use App\models\Level;
 use App\models\Semester;
 use App\models\Shift;
 use App\models\Time;
+use App\models\ClassScheduling;
 use DB;
 
 class ClassSchedulingController extends AppBaseController
@@ -130,7 +131,7 @@ class ClassSchedulingController extends AppBaseController
         $classScheduling = $this->classSchedulingRepository->find($id);
 
         if (empty($classScheduling)) {
-            Flash::error('Class Scheduling not found');
+            Flash::error('Class show Schedule not found');
 
             return redirect(route('classSchedulings.index'));
         }
@@ -145,17 +146,11 @@ class ClassSchedulingController extends AppBaseController
      *
      * @return Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        $classScheduling = $this->classSchedulingRepository->find($id);
-
-        if (empty($classScheduling)) {
-            Flash::error('Class Scheduling not found');
-
-            return redirect(route('classSchedulings.index'));
+        if($request->ajax()){
+            return Response(ClassScheduling::find($request->id));
         }
-
-        return view('class_schedulings.edit')->with('classScheduling', $classScheduling);
     }
 
     /**
@@ -166,22 +161,37 @@ class ClassSchedulingController extends AppBaseController
      *
      * @return Response
      */
-    public function update($id, UpdateClassSchedulingRequest $request)
-    {
-        $classScheduling = $this->classSchedulingRepository->find($id);
 
+     public function update(Request $request)
+     {
+         $classScheduling = array(
+             'class_id'=> $request->class_id,
+             'course_id'=> $request->course_id,
+             'level_id'=> $request->level_id,
+             'shift_id'=> $request->shift_id,
+             'classroom_id'=> $request->classroom_id,
+             'batch_id'=> $request->batch_id,
+             'day_id'=> $request->day_id,
+             'time_id'=> $request->time_id,
+             'semester_id'=> $request->semester_id,
+             'start_date'=> $request->start_date,
+             'end_date'=> $request->end_date,
+             'status'=> $request->status
+         );
+         echo "<pre>"; print_r($classScheduling); die;
+         ClassScheduling::FindOrFail($request->id)->update($classScheduling);
+
+         //echo "<pre>"; print_r($classScheduling); die;
         if (empty($classScheduling)) {
-            Flash::error('Class Scheduling not found');
+            Flash::error('Class update Schedule not found');
 
             return redirect(route('classSchedulings.index'));
         }
-
-        $classScheduling = $this->classSchedulingRepository->update($request->all(), $id);
-
-        Flash::success('Class Scheduling updated successfully.');
-
+        Flash::success('Class Schedule updated successfully.');
         return redirect(route('classSchedulings.index'));
-    }
+        
+     }
+
 
     /**
      * Remove the specified ClassScheduling from storage.
@@ -197,7 +207,7 @@ class ClassSchedulingController extends AppBaseController
         $classScheduling = $this->classSchedulingRepository->find($id);
 
         if (empty($classScheduling)) {
-            Flash::error('Class Scheduling not found');
+            Flash::error('Class Schedulingss not found');
 
             return redirect(route('classSchedulings.index'));
         }

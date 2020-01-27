@@ -19,7 +19,7 @@
                     <div class='btn-group'>
                         <a href="{{ route('levels.show', [$level->level_id]) }}" class='btn btn-warning btn-xs'><i class="glyphicon glyphicon-eye-open">View</i></a>
 
-                        <a data-toggle="modal" data-target="#level-edit-modal" id="edit" data-id="{{ $level->level_id }}" class='btn btn-info btn-xs'><i class="glyphicon glyphicon-edit">Edit</i></a>
+                        <a data-toggle="modal" data-target="#level-edit-modal" id="edits" data-id="{{ $level->level_id }}" class='btn btn-info btn-xs'><i class="glyphicon glyphicon-edit">Edit</i></a>
                         
                         {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                     </div>

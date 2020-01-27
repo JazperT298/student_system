@@ -12,7 +12,7 @@
       </div>
       <div class="modal-body">
             <!-- Level Field -->
-            <div class="form-group col-sm-12">
+            <div class="form-group col-sm-12" name="level", id="level">
                 {!! Form::label('level', 'Level:') !!}
                 {!! Form::text('level', null, ['class' => 'form-control']) !!}
             </div>
@@ -29,21 +29,22 @@
                 </div>
                 @section('scripts')
                     <script type="text/javascript">
-                        $(document).on('click', '#edit', function(data){
+                        $(document).on('click', '#edits', function(data){
                             var id = $(this).data('id')
                             alert(id)
-                            
-                            $.get("{{route('edit')}}", {id:id}, function(data){
+                            $.get("{{route('edits')}}", {id:id}, function(data){
+                                $("#level").val(data.level);
                                 $("#course_id").val(data.course_id);
+                                $("#level_description").val(data.level_description);
                                 $("#id").val(data.id);
-                                console.log(data);
+                                console.log(data.level);
                             })
-                        })
+                          })
                     </script>
                 @endsection
 
             <!-- Description Field -->
-            <div class="form-group col-sm-12">
+            <div class="form-group col-sm-12 " name="level_description", id="level_description">
                 {!! Form::label('level_description', 'Level Description:') !!}
                 {!! Form::textarea('level_description', null, ['class' => 'form-control', 'cols' => 40, 'rows' => 2 ]) !!}
             </div>
