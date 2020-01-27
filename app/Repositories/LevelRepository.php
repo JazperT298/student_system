@@ -21,7 +21,6 @@ class LevelRepository extends BaseRepository
         'course_id',
         'level_description'
     ];
-
     protected $primaryKey = 'level_id';
 
     /**

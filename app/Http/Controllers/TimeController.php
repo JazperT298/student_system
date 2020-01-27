@@ -29,6 +29,8 @@ class TimeController extends AppBaseController
      */
     public function index(Request $request)
     {
+        $course = Course::all();
+        
         $times = $this->timeRepository->all();
 
         return view('times.index')
