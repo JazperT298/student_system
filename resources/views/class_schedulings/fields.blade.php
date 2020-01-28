@@ -106,7 +106,6 @@
                             {!! Form::label('start_date', 'Start Date:') !!}
                             {!! Form::date('start_date', null, ['class' => 'form-control','id'=>'start_date']) !!}
                         </div>
-
                         @section('scripts')
                             <script type="text/javascript">
                                 $('#start_date').datetimepicker({
@@ -114,18 +113,25 @@
                                     useCurrent: false
                                 });
                                 $('#course_id').on('change', function(e){
-                                    console.log(e);
-                                        var course_id = e.target.value;
+                                        var course_id = $(this).val();
+                                        console.log(course_id);
+                                        var level = $('#level_id')
 
-                                        $('#level_id').empty();
-                                    $.get('dynamicLevel?course_id=' + course_id, function(data){
+                                        $('level').empty();
+                                    $.get("{{ route('dynamicLevel') }}",{course_id:course_id}, function(data){
                                         console.log(data);
                                         
                                     $.each(data, function(index, lev){
-                                        $('#level_id').append('<option value"'+ lev.level_id +'">'+ lev.level+'</option>')
+                                        $(level).append($('<option/>'), {
+                                            value: lev.level_id;
+                                            text: lev.level
+                                        });
+                                    
+                                        // $('#level_id').append('<option value = "'+ lev.level_id +'">'+ lev.level+'</option>')
                                         });
                                     });
                                 });
+                              
                             </script>
                         @endsection
 
@@ -162,5 +168,6 @@
     </div>
   </div>
 </div>
+
 
 

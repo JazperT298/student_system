@@ -68,5 +68,5 @@ Route::get('/levels/edit', ['as' => 'edits', 'uses' => 'LevelController@edit']);
 
 Route::get('/class_schedulings/edit', ['as' => 'edit', 'uses' => 'ClassSchedulingController@edit']);
 
-//Route::post('/class_schedulings/update', ['as' => 'update', 'uses' => 'ClassSchedulingController@update']);
+Route::post('/class_schedulings/update', ['as' => 'update', 'uses' => 'ClassSchedulingController@update']);
 

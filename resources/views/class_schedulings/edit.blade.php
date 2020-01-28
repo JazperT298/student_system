@@ -2,20 +2,22 @@
 <div class="modal fade" id="schedule-edit-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" style="width:90%">
     <div class="modal-content">
+    @include('adminlte-templates::common.errors')
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLongTitle">Edit Class Schedule</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="{{ route('classSchedulings.update', 'schedule_id') }}" method="put">
+      <form action="{{ route('update', 'schedule_id') }}" method="post"> 
             @csrf
-            @method('PUT')
+            @method('POST')
             <!-- </div> -->
                 <div class="modal-body">
                     <!-- Class Id Field -->
                     <div class="row">    
-                
+                        <input type="hidden" name='schedule_id' id="schedule_id">
+                        
                         <div class="form-group col-sm-4">
                             <select class="form-control" name="class_id", id="class_id">
                                 <option value="">Select Class</option>
@@ -126,14 +128,13 @@
                                         console.log(data);
                                         
                                     $.each(data, function(index, lev){
-                                        $('#level_id').append('<option value"'+ lev.level_id +'">'+ lev.level+'</option>')
+                                        $('#level_id').append('<option value = "'+ lev.level_id +'">'+ lev.level+'</option>')
                                         });
                                     });
-                                });
+                                })
 
                                 $(document).on('click', '#edit', function(data){
-                                var id = $(this).data('id')
-                                
+                                var id = $(this).data('id') 
                                 $.get("{{route('edit')}}", {id:id}, function(data){
                                     $("#class_id").val(data.class_id);
                                     $("#course_id").val(data.course_id);
@@ -146,8 +147,9 @@
                                     $("#semester_id").val(data.semester_id);
                                     $("#start_date").val(data.start_date);
                                     $("#end_date").val(data.end_date);
-                                    $("#id").val(data.id);
+                                    $("#schedule_id").val(data.schedule_id);
                                     $("#status").val(data.status);
+                                    // alert(data.schedule_id);
                                     console.log(data);
                                 })
                             })
@@ -180,11 +182,14 @@
                     </div>
                 </div>               
     <div class="modal-footer">
-        <button type="submit" class="btn btn-success btn-sm">Update Class Schedule</button>
+        <!-- <button type="submit" class="btn btn-success btn-sm">Update Class Schedule</button> -->
+        {!! Form::submit('Update Class Schedule', ['class' => 'btn btn-info']) !!}
       </div>
-      </form>
+      {!! Form::close() !!}
+      <!-- </form> -->
     </div>
   </div>
 </div>
+
 
 

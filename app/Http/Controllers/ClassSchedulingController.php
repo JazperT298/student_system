@@ -137,7 +137,7 @@ class ClassSchedulingController extends AppBaseController
         }
 
         return view('class_schedulings.show')->with('classScheduling', $classScheduling);
-    }
+     }
 
     /**
      * Show the form for editing the specified ClassScheduling.
@@ -178,8 +178,8 @@ class ClassSchedulingController extends AppBaseController
              'end_date'=> $request->end_date,
              'status'=> $request->status
          );
-         echo "<pre>"; print_r($classScheduling); die;
-         ClassScheduling::FindOrFail($request->id)->update($classScheduling);
+         //echo "<pre>"; print_r($classScheduling); die;
+         ClassScheduling::FindOrFail($request->schedule_id)->update($classScheduling);
 
          //echo "<pre>"; print_r($classScheduling); die;
         if (empty($classScheduling)) {
