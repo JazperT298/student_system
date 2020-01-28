@@ -15,9 +15,10 @@
         @include('adminlte-templates::common.errors')
         <div class="clearfix"></div>
         <div class="box box-primary">
-            <div class="box-body">
+            <div class="box-body">  
                     @include('class_schedulings.table')
                     @include('class_schedulings.edit')
+                    @include('class_schedulings.show_fields')
                     {!! Form::open(['route' => 'classSchedulings.store']) !!}
 
                     @include('class_schedulings.fields')

@@ -105,11 +105,18 @@ class LevelController extends AppBaseController
      *
      * @return Response
      */
-    public function edit(Request $request)
+   
+    public function edit($id)
     {
-        if($request->ajax()){
-            return Response(Level::find($request->id));
+        $level = $this->levelRepository->find($id);
+
+        if (empty($level)) {
+            Flash::error('Level not found');
+
+            return redirect(route('levels.index'));
         }
+
+        return view('levels.edit')->with('faculty', $level);
     }
 
     /**

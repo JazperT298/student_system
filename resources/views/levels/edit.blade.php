@@ -1,63 +1,53 @@
 
 
+@extends('layouts.app')
 
-<div class="modal fade" id="level-edit-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Edit Level</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-            <!-- Level Field -->
-            <div class="form-group col-sm-12" name="level", id="level">
-                {!! Form::label('level', 'Level:') !!}
-                {!! Form::text('level', null, ['class' => 'form-control']) !!}
-            </div>
+@section('content')
+    <section class="content-header">
+        <h1>
+            Level
+        </h1>
+   </section>
+   <div class="content">
+       @include('adminlte-templates::common.errors')
+       <div class="box box-primary">
+           <div class="box-body">
+               <div class="row">
+                   <form action="{{ route('update', 'level_id') }}" method="post"> 
+                  @csrf
+                  @method('POST')
 
-              <!-- Course Id Field -->
-              <div class="form-group col-sm-12">
-                    {!! Form::label('course_name', 'Course Title:') !!}
-                    <select class="form-control" name="course_id", id="course_id">
-                        <option value="">Select Course</option>
-                        @foreach ($course as $cour)
-                        <option value="{{$cour->course_id}}">{{$cour->course_name}}</option>
-                        @endforeach
-                    </select>
-                </div>
-                @section('scripts')
-                    <script type="text/javascript">
-                        $(document).on('click', '#edits', function(data){
-                            var id = $(this).data('id')
-                            alert(id)
-                            $.get("{{route('edits')}}", {id:id}, function(data){
-                                $("#level").val(data.level);
-                                $("#course_id").val(data.course_id);
-                                $("#level_description").val(data.level_description);
-                                $("#id").val(data.id);
-                                console.log(data.level);
-                            })
-                          })
-                    </script>
-                @endsection
+                        <!-- @include('levels.fields') -->
+                        
+                        <div class="form-group col-sm-12">
+                          {!! Form::label('level', 'Level:') !!}
+                          {!! Form::text('level', null, ['class' => 'form-control']) !!}
+                      </div>
 
-            <!-- Description Field -->
-            <div class="form-group col-sm-12 " name="level_description", id="level_description">
-                {!! Form::label('level_description', 'Level Description:') !!}
-                {!! Form::textarea('level_description', null, ['class' => 'form-control', 'cols' => 40, 'rows' => 2 ]) !!}
-            </div>
+                        <!-- Course Id Field -->
+                        <div class="form-group col-sm-12">
+                              <select class="form-control" name="course_id", id="course_id">
+                                  <option value="">Select Course</option>
+                                  @foreach ($course as $cour)
+                                  <option value="{{$cour->course_id}}">{{$cour->course_name}}</option>
+                                  @endforeach
+                              </select>
+                          </div>
 
-
-        </div>
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        {!! Form::submit('Update Level', ['class' => 'btn btn-success']) !!}
-      </div>
-    </div>
-  </div>
-</div>
-
-
+                      <!-- Description Field -->
+                      <div class="form-group col-sm-12">
+                          {!! Form::label('level_description', 'Level Description:') !!}
+                          {!! Form::textarea('level_description', null, ['class' => 'form-control', 'cols' => 40, 'rows' => 2 ]) !!}
+                      </div>
+                   
+               </div>
+               <div class="modal-footer">
+                    <!-- <button type="submit" class="btn btn-success btn-sm">Update Class Schedule</button> -->
+                    {!! Form::submit('Update Level', ['class' => 'btn btn-info']) !!}
+                  </div>
+                  {!! Form::close() !!}
+                  <!-- </form> -->
+           </div>
+       </div>
+   </div>
+@endsection

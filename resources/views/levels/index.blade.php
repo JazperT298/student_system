@@ -17,7 +17,6 @@
         <div class="box box-primary">
             <div class="box-body">
                     @include('levels.table')
-                    @include('levels.edit')
                     {!! Form::open(['route' => 'levels.store']) !!}
 
                         @include('levels.fields')

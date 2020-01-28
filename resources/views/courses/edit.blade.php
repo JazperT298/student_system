@@ -41,12 +41,8 @@
                     </div>
                 </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        {!! Form::submit('Update Course', ['class' => 'btn btn-info']) !!}
-      </div>
-    </div>
-  </div>
-</div>
+                {!! Form::submit('Update Course', ['class' => 'btn btn-info']) !!}
+ 
 
 
 
