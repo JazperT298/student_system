@@ -103,9 +103,34 @@
                         </div>
 
                         <!-- Image Field -->
-                        <div class="form-group col-sm-6">
+                        <!-- <div class="form-group col-sm-6">
                             {!! Form::label('image', 'Image:') !!}
                             {!! Form::text('image', null, ['class' => 'form-control']) !!}
+                        </div> -->
+                        <div class="form-group col-sm-6">
+                            <!-- <div class="form-group col-sm-4"> -->
+                                <table>
+                                    <thead>
+                                        <tr class="info">
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr >
+                                            <td class="image">
+                                                <!-- {!! Html::image('student_image/profile.jpg', null, ['class'=>'student-image', 'id'=>'showImage']) !!} -->
+                                                {!! Form::label('image', 'Image:') !!}
+                                                {!! Form::text('image', null, ['class' => 'form-control']) !!}
+                                                <input type="file" name="image" id="image" accept="image/x-png,image/png,image/jpg,image/jpeg">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="test-align:center;background:#ddd;">
+                                                <input type="button" name="browse_file" id="browse_file" class="form-control text-capitalize btn-browse" class="btn btn-outline-danger" value="Choose">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            <!-- </div> -->
                         </div>
 
                         <!-- Status Field -->

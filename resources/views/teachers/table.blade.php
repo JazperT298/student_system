@@ -57,7 +57,7 @@
 
 <!-- --------------Modal---------------- -->
 <div class="modal fade" id="teacher-view-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-dialog-centered" style="width:90%">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLongTitle"><i class="fa fa-id-badge" aria-hidden="true"></i></h5>
@@ -66,98 +66,93 @@
         </button>
       </div>
       <div class="modal-body">
+        <div class="row"> 
                 <input type="hidden" name="teacher_id" id="teacher_id">
                 
-                    <!-- Batch Field -->
-                    <div class="form-group">
-                        {!! Form::label('teacher_id', 'Teacher ID:') !!}
-                        <input type="text" name="teacher_id" id="teacher_id" readonly>
-                    </div>
                     <!-- Created_At Field -->
-                    <div class="form-group">
-                        {!! Form::label('first_name', 'First Name:') !!}
-                        <input type="text" name="first_name" id="first_name" readonly>
+                    <div class="form-group col-sm-4">
+                        <label>First Name: </label>
+                        <input type="text" class="form-control" name="first_name" id="first_name" readonly/>
                     </div>
                     <!-- Updated_At Field -->
-                    <div class="form-group ">
-                        {!! Form::label('last_name', 'Last Name:') !!}
-                        <input type="text" name="last_name" id="last_name" readonly>
+                    <div class="form-group col-sm-4">
+                        <label>Last Name: </label>
+                        <input type="text" class="form-control" name="last_name" id="last_name" readonly/>
                     </div>     <!-- Batch Field -->
-                    <div class="form-group ">
-                        {!! Form::label('gender', 'Gender:') !!}
-                        <input type="text" name="gender" id="gender" readonly>
+                    <div class="form-group col-sm-4">
+                        <label>Gender: </label>
+                        <input type="text" class="form-control" name="gender" id="gender" readonly/>
                     </div>
                     <!-- Created_At Field -->
-                    <div class="form-group ">
-                        {!! Form::label('email', 'Email:') !!}
-                        <input type="text" name="email" id="email" readonly>
+                    <div class="form-group col-sm-4">
+                        <label>Email: </label>
+                        <input type="text" class="form-control" name="email" id="email" readonly/>
                     </div>
                     <!-- Updated_At Field -->
-                    <div class="form-group ">
-                        {!! Form::label('dob', 'DOB:') !!}
-                        <input type="text" name="dob" id="dob" readonly>
+                    <div class="form-group col-sm-4">
+                        <label>DOB: </label>
+                        <input type="text" class="form-control" name="dob" id="dob" readonly/>
                     </div>
                          <!-- Batch Field -->
-                    <div class="form-group ">
-                        {!! Form::label('phone', 'Phone:') !!}
-                        <input type="text" name="phone" id="phone" readonly>
+                    <div class="form-group col-sm-4">
+                        <label>Phone: </label>
+                        <input type="text" class="form-control" name="phone" id="phone" readonly/>
                     </div>
                     <!-- Created_At Field -->
-                    <div class="form-group  ">
-                        {!! Form::label('address', 'Address:') !!}
-                        <input type="text" name="address" id="address" readonly>
+                    <div class="form-group col-sm-4 ">
+                        <label>Address: </label>
+                        <input type="text" class="form-control" name="address" id="address" readonly/>
                     </div>
                     <!-- Updated_At Field -->
-                    <div class="form-group ">
-                        {!! Form::label('nationality', 'Nationality:') !!}
-                        <input type="text" name="nationality" id="nationality" readonly>
+                    <div class="form-group col-sm-4">
+                        <label>Nationality: </label>
+                        <input type="text" class="form-control" name="nationality" id="nationality" readonly/>
                     </div>
                          <!-- Batch Field -->
-                    <div class="form-group 6">
-                        {!! Form::label('passport', 'Passport:') !!}
-                        <input type="text" name="passport" id="passport" readonly>
+                    <div class="form-group col-sm-4">
+                        <label>Passport: </label>
+                        <input type="text" class="form-control" name="passport" id="passport" readonly/>
                     </div>
                     <!-- Created_At Field -->
-                    <div class="form-group ">
-                        {!! Form::label('status', 'Status:') !!}
-                        @if ( $teacher->status == 1) 
-                        <p>Active</p>
-                        @else
-                        <p>In-Active</p>
-                        @endif
-                    </div>
 
                     <!-- Updated_At Field -->
-                    <div class="form-group ">
-                        {!! Form::label('dateregistered', 'Date Registered:') !!}
-                        <input type="text" name="dateregistered" id="dateregistered" readonly>
+                    <div class="form-group col-sm-4">
+                        <label>Date Registered: </label>
+                        <input type="text" class="form-control" name="dateregistered" id="dateregistered" readonly/>
                     </div>
                          <!-- Batch Field -->
-                    <div class="form-group">
-                        {!! Form::label('user_id', 'User ID:') !!}
-                        <input type="text" name="user_id" id="user_id" readonly>
+                    <div class="form-group col-sm-4">
+                        <label>User Type: </label>
+                        <input type="text" class="form-control" name="user_id" id="user_id" readonly/>
                     </div>
                     <!-- Created_At Field -->
-                    <div class="form-group ">
-                        {!! Form::label('image', 'Image:') !!}
-                        <input type="text" name="image" id="image" readonly>
+                    <div class="form-group col-sm-4">
+                        <label>Image: </label>
+                        <input type="text" class="form-control" name="image" id="image" readonly/>
                     </div>
                     <!-- Updated_At Field -->
-                    <div class="form-group ">
-                        {!! Form::label('created_at', 'Created_At:') !!}
-                        <input type="text" name="created_at" id="created_at" readonly>
+                    <div class="form-group col-sm-6">
+                        <label>Created At: </label>
+                        <input type="text" class="form-control" name="created_at" id="created_at" readonly/>
                     </div>
                          <!-- Batch Field -->
-                    <div class="form-group ">
-                        {!! Form::label('updated_at', 'Update_At:') !!}
-                        <input type="text" name="updated_at" id="updated_at" readonly>
+                    <div class="form-group col-sm-6">
+                        <label>Updated At: </label>
+                        <input type="text" class="form-control" name="updated_at" id="updated_at" readonly/>
+                    </div>
+                    <div class="form-group col-sm-6" name="status" id="status" readonly>
+                        {!! Form::label('status', 'Status:') !!}
+                        <label class="checkbox-inline">
+                            {!! Form::hidden('status', 0) !!}
+                            {!! Form::checkbox('status', '1', null) !!}
+                        </label>
                     </div>
               
                 </div>
-
-            <!-- <div class="modal-footer">
+                </div>
+            <div class="modal-footer">
                 <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
-            </div> -->
+            </div>
         </div>
     </div>
 </div>
