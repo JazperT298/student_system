@@ -153,6 +153,39 @@
                                     console.log(data);
                                 })
                             })
+
+                            $('#schedule-view-modal').on('show.bs.modal', function(event){
+                                var button = $(event.relatedTarget)
+                                var class_id = button.data('class_id')
+                                var course_id = button.data('course_id')
+                                var level_id = button.data('level_id')
+                                var shift_id = button.data('shift_id')
+                                var classroom_id = button.data('classroom_id')
+                                var batch_id = button.data('batch_id')
+                                var day_id = button.data('day_id')
+                                var time_id = button.data('time_id')
+                                var semester_id = button.data('semester_id')
+                                var start_date = button.data('start_date')
+                                var end_date = button.data('end_date')
+                                var status = button.data('status')
+                                var schedule_id = button.data('schedule_id')
+                                var modal = $(this)
+
+                                modal.find('.modal-title').text('VIEW CLASS SCHEDULE');
+                                modal.find('.modal-body #class_id').val(class_id);
+                                modal.find('.modal-body #course_id').val(course_id);
+                                modal.find('.modal-body #level_id').val(level_id);
+                                modal.find('.modal-body #shift_id').val(shift_id);
+                                modal.find('.modal-body #classroom_id').val(classroom_id);
+                                modal.find('.modal-body #batch_id').val(batch_id);
+                                modal.find('.modal-body #day_id').val(day_id);
+                                modal.find('.modal-body #time_id').val(time_id);
+                                modal.find('.modal-body #semester_id').val(semester_id);
+                                modal.find('.modal-body #start_date').val(start_date);
+                                modal.find('.modal-body #end_date').val(end_date);
+                                modal.find('.modal-body #status').val(status);
+                                modal.find('.modal-body #schedule_id').val(schedule_id);
+                            })
                             </script>
                         @endsection
 
@@ -190,6 +223,10 @@
     </div>
   </div>
 </div>
+
+
+
+
 
 
 

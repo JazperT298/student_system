@@ -41,7 +41,21 @@
                 <td>
                     {!! Form::open(['route' => ['classSchedulings.destroy', $classScheduling->schedule_id], 'method' => 'delete']) !!}
                     <div class='btn-group'>                 
-                        <a data-toggle="modal" data-target="#schedule-view-modal"  data-id="{{ $classScheduling->schedule_id }}"  class='btn btn-warning btn-xs' ><i class="glyphicon glyphicon-edit">View</i></a>
+                        <a data-toggle="modal" data-target="#schedule-view-modal" id="view" data-id="{{ $classScheduling->schedule_id }}"  
+                        data-schedule_id="{!!$classScheduling->schedule_id !!}"
+                        data-course_id="{!!$classScheduling->course_name !!}"
+                        data-class_id="{!!$classScheduling->class_name !!}"
+                        data-level_id="{!!$classScheduling->level !!}"
+                        data-shift_id="{!!$classScheduling->shift !!}"
+                        data-classroom_id="{!!$classScheduling->classroom_name !!}"
+                        data-batch_id="{!!$classScheduling->batch !!}"
+                        data-day_id="{!!$classScheduling->name !!}"
+                        data-time_id="{!!$classScheduling->time !!}"
+                        data-semester_id="{!!$classScheduling->semester_name !!}"
+                        data-start_date="{!!$classScheduling->start_date !!}"
+                        data-end_date="{!!$classScheduling->end_date !!}"
+                        data-status="{!!$classScheduling->status !!}"
+                        class='btn btn-warning btn-xs' ><i class="glyphicon glyphicon-edit">View</i></a>
 
                         <a data-toggle="modal" data-target="#schedule-edit-modal" id="edit" data-id="{{ $classScheduling->schedule_id }}"  class='btn btn-info btn-xs'><i class="glyphicon glyphicon-edit">Edit</i></a>
                         {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
@@ -54,4 +68,17 @@
         </tbody>
     </table>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 

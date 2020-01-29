@@ -1,3 +1,6 @@
+
+
+
 <!-- --------------Modal---------------- -->
 <div class="modal fade" id="schedule-view-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" style="width:90%">
@@ -16,7 +19,7 @@
                 <div class="modal-body">
                     <!-- Class Id Field -->
                     <div class="row">    
-                        <input type="text" name='schedule_id' id="schedule_id">
+                        <input type="hidden" name='schedule_id' id="schedule_id">
                         
                         <div class="form-group col-sm-4">
                             <label>Class: </label>
@@ -75,9 +78,7 @@
                         <div class="form-group col-sm-6">
                             <label>Start Date: </label>
                             <input type="text" class="form-control" name="start_date"  id="start_date" autocomplete="off" readonly>
-                        </div>
-
-                        
+                        </div>                
             
                         <div class="form-group col-sm-6">
                             <label>End Date: </label>
@@ -92,45 +93,7 @@
                                 {!! Form::checkbox('status', '1', null) !!}
                             </label>
                         </div>    
-                        @section('scripts')
-                            <script type="text/javascript">
-                                $('#schedule-view-modal').on('show.bs.modal', function(event){
-                                    var button = $(event.relatedTarget)
-                                    var class_id = button.data('class_id')
-                                    var course_id = button.data('course_id')
-                                    var level_id = button.data('level_id')
-                                    var shift_id = button.data('shift_id')
-                                    var classroom_id = button.data('classroom_id')
-                                    var batch_id = button.data('batch_id')
-                                    var day_id = button.data('day_id')
-                                    var time_id = button.data('time_id')
-                                    var semester_id = button.data('semester_id')
-                                    var start_date = button.data('start_date')
-                                    var end_date = button.data('end_date')
-                                    var status = button.data('status')
-                                    var schedule_id = button.data('schedule_id')
-                                    console.log(schedule_id);
-                                    alert(class_id);
-                                    var modal = $(this)
-
-                                    modal.find('.modal-title').text('VIEW CLASS SCHEDULE');
-                                    modal.find('.modal-body #class_id').val(class_id);
-                                    modal.find('.modal-body #course_id').val(course_id);
-                                    modal.find('.modal-body #level_id').val(level_id);
-                                    modal.find('.modal-body #shift_id').val(shift_id);
-                                    modal.find('.modal-body #classroom_id').val(classroom_id);
-                                    modal.find('.modal-body #batch_id').val(batch_id);
-                                    modal.find('.modal-body #day_id').val(day_id);
-                                    modal.find('.modal-body #time_id').val(time_id);
-                                    modal.find('.modal-body #semester_id').val(semester_id);
-                                    modal.find('.modal-body #start_date').val(start_date);
-                                    modal.find('.modal-body #end_date').val(end_date);
-                                    modal.find('.modal-body #status').val(status);
-                                    modal.find('.modal-body #schedule_id').val(schedule_id);
-
-                                });
-                            </script>
-                        @endsection          
+                        
                     </div>
                 </div>               
     <div class="modal-footer">
@@ -140,12 +103,6 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
 
 
 
