@@ -39,6 +39,11 @@
     <a href="{{ route('faculties.index') }}"><i class="fa fa-edit"></i><span>Faculties</span></a>
 </li>
 
+<li class="{{ Request::is('deparments*') ? 'active' : '' }}">
+    <a href="{{ route('deparments.index') }}"><i class="fa fa-edit"></i><span>Deparments</span></a>
+</li>
+
+
 <li class="{{ Request::is('times*') ? 'active' : '' }}">
     <a href="{{ route('times.index') }}"><i class="fa fa-edit"></i><span>Times</span></a>
 </li>

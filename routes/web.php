@@ -69,3 +69,5 @@ Route::get('/class_schedulings/edit', ['as' => 'edit', 'uses' => 'ClassSchedulin
 Route::post('/class_schedulings/update', ['as' => 'update', 'uses' => 'ClassSchedulingController@update']);
 
 Route::get('/teachers/edit', ['as' => 'edit', 'uses' => 'TeacherController@edit']);
+
+Route::resource('deparments', 'DeparmentsController');
