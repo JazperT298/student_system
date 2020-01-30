@@ -9,6 +9,9 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
+use App\models\Course;
+use App\models\Level;
+use DB;
 
 class TimeController extends AppBaseController
 {

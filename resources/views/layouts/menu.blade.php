@@ -35,14 +35,6 @@
     <a href="{{ route('courses.index') }}"><i class="fa fa-edit"></i><span>Courses</span></a>
 </li>
 
-<li class="{{ Request::is('faculties*') ? 'active' : '' }}">
-    <a href="{{ route('faculties.index') }}"><i class="fa fa-edit"></i><span>Faculties</span></a>
-</li>
-
-<li class="{{ Request::is('deparments*') ? 'active' : '' }}">
-    <a href="{{ route('deparments.index') }}"><i class="fa fa-edit"></i><span>Deparments</span></a>
-</li>
-
 
 <li class="{{ Request::is('times*') ? 'active' : '' }}">
     <a href="{{ route('times.index') }}"><i class="fa fa-edit"></i><span>Times</span></a>
@@ -63,6 +55,7 @@
 </ul>
 </li>
 
+
 <li class="treeview">
     <a href="#">
         <i class="fa fa-dashboard"></i> <span>Schedule</span>
@@ -82,6 +75,27 @@
 
 </ul>
 </li>
+
+<li class="treeview">
+    <a href="#">
+        <i class="fa fa-dashboard"></i> <span>Faculty</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+            </span>
+    </a>
+<ul class="treeview-menu">
+
+<li class="{{ Request::is('faculties*') ? 'active' : '' }}">
+    <a href="{{ route('faculties.index') }}"><i class="fa fa-edit"></i><span>Faculties</span></a>
+</li>
+
+<li class="{{ Request::is('deparments*') ? 'active' : '' }}">
+    <a href="{{ route('deparments.index') }}"><i class="fa fa-edit"></i><span>Deparments</span></a>
+</li>
+
+</ul>
+</li>
+
 <!-- @endif -->
 
 <li class="{{ Request::is('admissions*') ? 'active' : '' }}">

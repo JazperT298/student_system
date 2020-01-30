@@ -27,7 +27,7 @@ class Deparments extends Model
 
 
     protected $dates = ['deleted_at'];
-
+    protected $primaryKey = 'department_id';
 
 
     public $fillable = [

@@ -9,6 +9,9 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
+use App\Models\Faculty;
+use App\Models\Department;
+use DB;
 
 class DeparmentsController extends AppBaseController
 {
@@ -29,10 +32,21 @@ class DeparmentsController extends AppBaseController
      */
     public function index(Request $request)
     {
+        $faculties = Faculty::all();
+
         $deparments = $this->deparmentsRepository->all();
 
-        return view('deparments.index')
+        
+        $deparmentss = DB::table('departments')->select(
+            'faculties.*',
+            'departments.*')
+            ->join('faculties', 'faculties.faculty_id', '=', 'departments.faculty_id')
+            ->get();
+
+        return view('deparments.index',compact('deparmentss','faculties'))
             ->with('deparments', $deparments);
+
+
     }
 
     /**

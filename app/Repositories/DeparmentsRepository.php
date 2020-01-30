@@ -23,6 +23,7 @@ class DeparmentsRepository extends BaseRepository
         'department_description',
         'department_status'
     ];
+    protected $primaryKey = 'department_id';
 
     /**
      * Return searchable fields

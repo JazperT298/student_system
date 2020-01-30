@@ -32,6 +32,8 @@ Route::resource('shifts', 'ShiftController');
 
 Route::resource('courses', 'CourseController');
 
+Route::resource('deparments', 'DeparmentsController');
+
 Route::resource('faculties', 'FacultyController');
 
 Route::resource('times', 'TimeController');
@@ -70,4 +72,3 @@ Route::post('/class_schedulings/update', ['as' => 'update', 'uses' => 'ClassSche
 
 Route::get('/teachers/edit', ['as' => 'edit', 'uses' => 'TeacherController@edit']);
 
-Route::resource('deparments', 'DeparmentsController');
